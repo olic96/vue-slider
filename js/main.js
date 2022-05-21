@@ -2,6 +2,7 @@ const app = new Vue({
     el: '#app',
     data: {
         currentIndex: 0,
+        timeId: null,
         images: [
             {
                 src: 'img/01.jpg',
@@ -51,8 +52,21 @@ const app = new Vue({
             // BONUS 1
         changeImage(index) {
             this.currentIndex = index;
+        },
+            // BONUS 2
+        startTime() {
+            this.timeId = setInterval(() => {
+                this.changeImageDown();
+            }, 3000);
+        },
+            // BONUS 3
+        stopTime() {
+            clearInterval(this.timeId)
         }
     },
+    mounted() {
+        this.startTime();
+    }
 });
 
 

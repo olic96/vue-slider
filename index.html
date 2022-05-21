@@ -11,7 +11,7 @@
 </head>
 <body>
    <div class="container" id="app">
-        <div class="items">
+        <div class="items" @mouseover="stopTime()" @mouseleave="startTime()">
             
             <div class="item active">
                 <img :src="images[currentIndex].src" alt="images[currentIndex].title">
@@ -22,10 +22,10 @@
             </div> 
            
         </div>
-        <div class="thumbs">
+        <div class="thumbs" @mouseover="stopTime()" @mouseleave="startTime()">
             <div class="prev" @click="changeImageUp()"></div>
-
-            <div class="thumb" v-for="(image, index) in images" :class="currentIndex === index ? 'active' : 'null'" @click="changeImage(index)">
+            <!-- currentIndex === index ? 'active' : 'null'-->
+            <div class="thumb" v-for="(image, index) in images" :class="{active: currentIndex === index}"  @click="changeImage(index)">
                 <img :src="image.src" :alt="image.title">
             </div> 
             
