@@ -47,8 +47,12 @@ const app = new Vue({
             } else {
                 this.currentIndex++;
             }
+        },
+            // BONUS 1
+        changeImage(index) {
+            this.currentIndex = index;
         }
-    }
+    },
 });
 
 

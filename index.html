@@ -14,7 +14,7 @@
         <div class="items">
             
             <div class="item active">
-                <img :src="images[currentIndex].src" alt="">
+                <img :src="images[currentIndex].src" alt="images[currentIndex].title">
                 <div class="text">
                     <h3>Lorem</h3>
                     <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis, magnam dolores dolorum corporis.</p>
@@ -25,8 +25,8 @@
         <div class="thumbs">
             <div class="prev" @click="changeImageUp()"></div>
 
-            <div class="thumb" v-for="(image, index) in images">
-                <img :src="image.src" alt="">
+            <div class="thumb" v-for="(image, index) in images" :class="currentIndex === index ? 'active' : 'null'" @click="changeImage(index)">
+                <img :src="image.src" :alt="image.title">
             </div> 
             
             <div class="next" @click="changeImageDown()"></div>
